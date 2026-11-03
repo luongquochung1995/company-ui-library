@@ -1,0 +1,58 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-md);
+
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &--primary {
+    background: var(--ui-primary);
+    color: white;
+
+    &:hover:not(:disabled) {
+      background: var(--ui-primary-hover);
+    }
+  }
+
+  &--secondary {
+    background: #e5e7eb;
+    color: #111827;
+  }
+
+  &--danger {
+    background: var(--ui-danger);
+    color: white;
+  }
+
+  &--outline {
+    background: transparent;
+    border-color: var(--ui-border);
+    color: var(--ui-text);
+  }
+
+  &--small {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  &--medium {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  &--large {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

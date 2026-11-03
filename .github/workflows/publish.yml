@@ -1,0 +1,48 @@
+name: Publish Angular UI Library
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com
+          scope: '@luongquochung1995'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build Angular Library
+      - name: Build UI Library
+        run: npx ng build ui-library --configuration production
+
+      # Verify build
+      - name: Verify package
+        run: |
+          ls -la dist/ui-library
+          cat dist/ui-library/package.json
+
+      # Publish package
+      - name: Publish to GitHub Packages
+        working-directory: dist/ui-library
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

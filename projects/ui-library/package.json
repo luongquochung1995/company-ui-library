@@ -1,0 +1,20 @@
+{
+  "name": "@luongquochung1995/ui-library",
+  "version": "1.0.1",
+  "description": "Reusable Angular UI Component Library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luongquochung1995/company-ui-library.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/cdk": "^19.2.0",
+    "rxjs": "^7.8.0"
+  },
+  "sideEffects": false
+}
