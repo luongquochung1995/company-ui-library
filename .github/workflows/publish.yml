@@ -36,6 +36,9 @@ jobs:
       - name: Clean npm cache
         run: npm cache clean --force
 
+      - name: Point lockfile to public npm registry
+        run: sed -i 's#http://10.60.129.132/repository/npm-proxy/#https://registry.npmjs.org/#g' package-lock.json
+
       - name: Install dependencies
         run: npm ci
 
