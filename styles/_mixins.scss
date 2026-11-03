@@ -1,0 +1,10 @@
+@mixin ui-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ui-focus {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
